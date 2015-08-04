@@ -11,7 +11,7 @@ gem 'rails', '4.2.0'
  end  
  
  group :development do
-   gem 'sqlite3'
+   gem 'pg'
  end
 
 # Use SCSS for stylesheets
@@ -37,6 +37,7 @@ gem 'devise'
 gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'figaro', '1.1.1'
+gem 'omniauth-facebook'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
