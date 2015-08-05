@@ -2,7 +2,13 @@
   <div class="jumbotron">
     <p class="lead">Create and share markdown wikis</p>
     
-    <p align="center"><%= link_to "Sign up today", new_user_registration_path, class: "btn btn-success" %></p>
+    <div class="row">
+      <div class="col-lg-1 col-centered">
+        <%= link_to "Sign up today", new_user_registration_path, class: "btn btn-success" %>
+        <%= link_to "Log in with Twitter", '/auth/twitter', class: "btn btn-default" %>
+      </div>
+    </div>
+
   </div>
 
   <div class="row marketing">
