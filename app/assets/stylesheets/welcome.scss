@@ -4,8 +4,47 @@
 
 
 .welcome-container {
+  padding-top: 80px;
+  font-family: HelveticaNeue-Light;
+}
 
-  p {
-    text-align: center;
+.welcome-body{
+  font-size: 30px;
+  color: black;
+  text-align: center;
+  padding-bottom: 40px;
+}
+
+.login-buttons{
+  text-align: center;
+  .btn{
+    font-family: HelveticaNeue-Light ;
   }
+}
+
+.user-welcome{
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 40px;
+  font-weight: bolder;
+}
+
+#signup-button{
+  .btn{
+    background-color: #a9a9a9;
+    color: white;
+  }
+  .btn:hover, .btn:focus, .btn.focus {
+    background-color: #404040;
+  }
+}
+
+.purchase-options{
+  text-align: center;
+  font-size: 20px;
+  padding: 40px;
+}
+
+.purchase-icon{
+  padding: 20px;
 }
