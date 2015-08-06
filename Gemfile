@@ -38,8 +38,8 @@ gem 'bootstrap-sass', '~> 3.3.5'
 
 gem 'figaro', '1.1.1'
 
-gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

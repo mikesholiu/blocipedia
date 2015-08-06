@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-lg-1 col-centered">
         <%= link_to "Sign up today", new_user_registration_path, class: "btn btn-success" %>
-        <%= link_to "Log in with Twitter", '/auth/twitter', class: "btn btn-default" %>
+        <%= link_to "Log in with Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-default" %>
       </div>
     </div>
 
