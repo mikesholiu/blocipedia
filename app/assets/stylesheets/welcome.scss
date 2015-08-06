@@ -6,13 +6,18 @@
 .welcome-container {
   padding-top: 80px;
   font-family: HelveticaNeue-Light;
+  color: black;
+  text-align: center;
 }
 
 .welcome-body{
   font-size: 30px;
-  color: black;
-  text-align: center;
   padding-bottom: 40px;
+}
+
+.welcome-link{
+  font-size: 20px;
+  padding-bottom: 10px;
 }
 
 .login-buttons{
