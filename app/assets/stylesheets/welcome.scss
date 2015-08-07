@@ -1,3 +1,55 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.welcome-container {
+  padding-top: 80px;
+  font-family: HelveticaNeue-Light;
+  color: black;
+  text-align: center;
+}
+
+.welcome-body{
+  font-size: 30px;
+  padding-bottom: 40px;
+}
+
+.welcome-link{
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+
+.login-buttons{
+  text-align: center;
+  .btn{
+    font-family: HelveticaNeue-Light ;
+  }
+}
+
+.user-welcome{
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 40px;
+  font-weight: bolder;
+}
+
+#signup-button{
+  .btn{
+    background-color: #a9a9a9;
+    color: white;
+  }
+  .btn:hover, .btn:focus, .btn.focus {
+    background-color: #404040;
+  }
+}
+
+.purchase-options{
+  text-align: center;
+  font-size: 20px;
+  padding: 40px;
+}
+
+.purchase-icon{
+  padding: 20px;
+}
