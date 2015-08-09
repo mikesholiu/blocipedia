@@ -2,21 +2,22 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.title{
+.container{
   font-family: HelveticaNeue-Light;
+}
+
+.title{
   font-size: 30px;
   text-align: center;
   padding-top: 40px;
 }
 
 .body{
-  font-family: HelveticaNeue-Light;
   font-size: 15px;
   padding: 20px;
 }
 
 .wiki-link{
-  font-family: HelveticaNeue-Light;
   font-size: 15px;
   text-align: left;
   padding: 20px;
@@ -24,6 +25,7 @@
 
 #edit-delete{
   text-align: right;
+  color: #337ab7;
 }
 
 #post-buttons-right{
@@ -32,4 +34,9 @@
 
 #post-buttons-left{
   text-align: left;
+}
+
+#post-buttons-center{
+  text-align: center;
+  padding-bottom: 20px;
 }
