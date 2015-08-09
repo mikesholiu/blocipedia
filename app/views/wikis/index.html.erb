@@ -1,4 +1,13 @@
-<h1>Public Wikis</h1>
+<div class = "row title">
+  <div class = "col-md-6 col-md-offset-3">Public Wikis</div>
+</div>
+
 <% @wikis.each do |wiki| %>
-  <p><%= link_to wiki.title, wiki %></p>
+  <div class="row"> 
+    <div class = "wiki-link">
+      <div class = "col-md-3 col-md-offset-3"><%= link_to wiki.title, wiki %></div>
+      <div id = "edit-delete" class="col-md-3"><%= link_to "Edit", edit_wiki_path(wiki) %> <%= link_to "Delete", root_path %></div>
+    </div>
+  </div>
 <% end %>
+
