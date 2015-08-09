@@ -1,0 +1,42 @@
+// Place all the styles related to the Wikis controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container{
+  font-family: HelveticaNeue-Light;
+}
+
+.title{
+  font-size: 30px;
+  text-align: center;
+  padding-top: 40px;
+}
+
+.body{
+  font-size: 15px;
+  padding: 20px;
+}
+
+.wiki-link{
+  font-size: 15px;
+  text-align: left;
+  padding: 20px;
+}
+
+#edit-delete{
+  text-align: right;
+  color: #337ab7;
+}
+
+#post-buttons-right{
+  text-align: right;
+}
+
+#post-buttons-left{
+  text-align: left;
+}
+
+#post-buttons-center{
+  text-align: center;
+  padding-bottom: 20px;
+}

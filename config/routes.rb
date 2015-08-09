@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  resources :wikis
+
   devise_for :users, controllers: {omniauth_callbacks: "omniauth_callbacks"}
-  get 'welcome/index'
-  get 'welcome/about'
+
+  get 'about' => 'welcome#about'
 
   get '/auth/:provider/callback', to: 'sessions#create'
   
