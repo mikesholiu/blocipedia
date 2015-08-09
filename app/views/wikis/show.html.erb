@@ -1,13 +1,15 @@
-<div class = "title"><%= @wiki.title %></div>
-<div class = "container">
-  <div class = "body col-md-6 col-md-offset-3"><%= simple_format(@wiki.body) %></div>
-</div>
 
-<div class = "row col-md-6 col-md-offset-6">
-  <div class = "col-md-3" id = "post-buttons-right">
+<div class = "container">
+  <div class = "title"><%= @wiki.title %></div>
+  <div class = "body col-md-6 col-md-offset-3"><%= simple_format(@wiki.body) %></div>
+
+
+<div class = "row col-md-6 col-md-offset-3">
+  <div class = "col-md-3 col-md-offset-3" id = "post-buttons-center">
     <%= link_to "edit", edit_wiki_path(@wiki) %>
   </div>
-  <div class = "col-md-3" id = "post-buttons-left">
+  <div class = "col-md-3" id = "post-buttons-center">
     <%= link_to "return to list", wikis_path %>
+  </div>
   </div>
 </div>
