@@ -6,6 +6,10 @@
      body:   Faker::Lorem.paragraph
    )
  end
+
+ # Create standard and premium plans
+ Plan.create!(name: "Standard", price: 0.0)
+ Plan.create!(name: "Premium", price: 10.0)
   
  puts "Seed finished"
  puts "#{Wiki.count} posts created"

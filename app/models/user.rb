@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
   after_initialize :init
+  belongs_to :plan
+  has_many :wikis, dependent: :destroy
 
   def init
     self.role ||= "standard"
