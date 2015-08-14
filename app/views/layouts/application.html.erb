@@ -3,8 +3,12 @@
 <head>
   <title>Blocipedia</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- if current page is checkout, show the stripe javascript tag -->
+  <%= javascript_include_tag 'https://js.stripe.com/v1/', 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
+  <%= tag :meta, :name => "stripe-key", :content => ENV["STRIPE_PUBLISHABLE_KEY"]  %>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 </head>
 
