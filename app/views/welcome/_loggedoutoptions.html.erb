@@ -1,22 +1,22 @@
-  <div class="row login-buttons">
+<!--   <div class="row login-buttons">
     <div class="col-md-6 col-md-offset-3">
       <id id="signup-button"><%= link_to "Sign up today", new_user_registration_path, class: "btn btn-social btn-default" %></id>
       <%= link_to "Log in with Twitter", user_omniauth_authorize_path(:twitter), class: "btn btn-social btn-twitter" %>
     </div>
-  </div>
+  </div> -->
 
 <div class = "row col-md-6 col-md-offset-3 welcome-link">
   <%= link_to "Browse public wikis", wikis_path %>
 </div>
 
-<div class="row purchase-options">
-  <div class="col-md-3 col-md-offset-3">
-    Create public wikis.
-    <div class="purchase-icon"><img src="test-tube-icon.svg" height="100" width="100"></div>
-  </div>
-
-  <div class="col-md-3">
-    Create private wikis.
-    <div class="purchase-icon"><img src="lab-beaker-icon.svg" height="100" width="100"></div>
+<div class="row welcome-link">
+  <div class="col-md-6 col-md-offset-3">
+    <%= link_to "Create free account", new_user_registration_path(plan: @free_plan.id)%>
   </div>
 </div>
+
+<!-- <div class = "row welcome-link">
+  <div class="col-md-6 col-md-offset-3">
+    <%= link_to "Create premium account", new_user_registration_path(plan: @premium_plan.id)%>
+  </div>
+</div> -->

@@ -1,13 +1,21 @@
 <div class = "row col-md-6 col-md-offset-3 user-welcome"> Hello <%= current_user.name %>. </div>
 
-  <div class = "row col-md-6 col-md-offset-3 welcome-link">
-    <%= link_to "Edit my profile", edit_user_registration_path %>
-  </div>
+<div class = "row col-md-6 col-md-offset-3 welcome-link">
+  <%= link_to "Edit my profile", edit_user_registration_path %>
+</div>
 
-  <div class = "row col-md-6 col-md-offset-3 welcome-link">
-    <%= link_to "Browse public wikis", wikis_path %>
-  </div>
+<div class = "row col-md-6 col-md-offset-3 welcome-link">
+  <%= link_to "Browse public wikis", wikis_path %>
+</div>
 
-  <div class = "row col-md-6 col-md-offset-3 welcome-link">
-    <%= link_to "Create new wiki", new_wiki_path %>
-  </div>
+<div class = "row col-md-6 col-md-offset-3 welcome-link">
+  <%= link_to "Create new wiki", new_wiki_path %>
+</div>
+
+  <% if current_user.role == 'standard' %>
+    <div class = "row col-md-6 col-md-offset-3 welcome-link">
+    <%= link_to "Upgrade to premium account", new_subscriber_path %>
+    <!-- otherwise include downgrade option in the user profile settings -->
+    <!-- need to default the admin to a premium account as well -->
+    </div>
+<% end %>
