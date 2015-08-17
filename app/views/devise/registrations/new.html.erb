@@ -1,45 +1,9 @@
-<% if params[:plan] == "1" %>
-  <h2>Sign up for free plan</h2>
-
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= devise_error_messages! %>
-
-    <div class = "form-group">
-      <%= f.label :name %><br />
-      <%= f.text_field :name, autofocus: true %>
-    </div>
-
-    <div class = "form-group">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true %>
-    </div>
-
-    <% if f.object.password_required? %>
-      <div class = "form-group">
-        <%= f.label :password %>
-        <% if @validatable %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class = "form-group">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
-    <% end %>
-
-    <div class="actions">
-      <%= f.submit "Sign up" %>
-    </div>
-  <% end %>
-
-<% else %>
+<% if params[:plan] == "2" %>
   
   <h2>Sign up for premium plan</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-
+    <%= hidden_field_tag 'plan', params[:plan] %>
     <%= devise_error_messages! %>
     
     <div class = "form-group">
@@ -67,23 +31,41 @@
       </div>
     <% end %>
 
-  <h2>Payment Information</h2>
-    <div class="form-group">
-      <%= label_tag :card_number, "Credit Card Number" %>
-      <%= text_field_tag :card_number, nil, name: nil, class: "form-control" %>
+    <div class="actions">
+      <%= f.submit "Proceed to payment" %>
     </div>
-    <div class="form-group">
-      <%= label_tag :card_code, "Security Code (CVV)" %>
-      <%= text_field_tag :card_code, nil, name: nil, class: "form-control" %>
+  <% end %>
+
+<% else %>
+  <h2>Sign up for free plan</h2>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <%= hidden_field_tag 'plan', params[:plan] %>
+    <div class = "form-group">
+      <%= f.label :name %><br />
+      <%= f.text_field :name, autofocus: true %>
     </div>
-    <div class="form-group">
-      <%= label_tag :card_month, "Card Expiration" %>
-      <%= select_month nil, {add_month_numbers: true}, {name: nil, id: "card_month"}%>
-      <%= select_year nil, {start_year: Date.today.year, end_year: Date.today.year+15}, {name: nil, id: "card_year"}%>
+
+    <div class = "form-group">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
     </div>
-    <div id="stripe_error">
-      <noscript>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscript>
-    </div>
+
+    <% if f.object.password_required? %>
+      <div class = "form-group">
+        <%= f.label :password %>
+        <% if @validatable %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class = "form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+    <% end %>
 
     <div class="actions">
       <%= f.submit "Sign up" %>
