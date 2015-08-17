@@ -15,9 +15,9 @@ class SubscribersController < ApplicationController
       email: email
       )
 
-    # current_user.subscribed = true
-    # current_user.stripeid = customer.id
-    # current_user.save
+    current_user.role = "premium"
+    current_user.stripeid = customer.id
+    current_user.save
 
     redirect_to root_path
 

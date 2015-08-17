@@ -14,7 +14,8 @@
 
   <% if current_user.role == 'standard' %>
     <div class = "row col-md-6 col-md-offset-3 welcome-link">
-    <%= link_to "Upgrade to premium account", new_wiki_path %>
+    <%= link_to "Upgrade to premium account", new_subscriber_path %>
     <!-- otherwise include downgrade option in the user profile settings -->
+    <!-- need to default the admin to a premium account as well -->
     </div>
 <% end %>
