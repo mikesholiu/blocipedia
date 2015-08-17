@@ -16,11 +16,15 @@ class SubscribersController < ApplicationController
       )
 
     current_user.role = "premium"
-    current_user.stripeid = customer.id
+    current_user.stripe_id = customer.id
     current_user.save
 
     redirect_to root_path
 
   end
+
+  def cancel_subscription
+  end
+  
 
 end

@@ -19,6 +19,9 @@
     <div class="col-md-3 header-bar"><%= link_to "Blocipedia", root_path %></div>
       <div class="col-md-6 col-md-offset-3 header-bar text-right">
           <% if current_user %>
+            <% if current_user.role != "standard" %>
+              <span class="label label-warning">Premium</span>
+            <% end %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
             <% else %>
               <%= link_to "Sign in", new_user_session_path %>
