@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   put 'cancel_subscription', to: 'subscribers#cancel_subscription'
   
+  get 'private_wikis', to: 'wikis#private_wikis'
+
   root to: 'welcome#index'
 
 end

@@ -18,7 +18,9 @@
        <div class="form-group">
          <%= f.label :body %>
          <%= f.text_area :body, rows: 8, class: 'form-control', placeholder: "Enter wiki body" %>
-         <%= render :partial => 'form', :locals => { :f => f } %>
+         <% if user_signed_in? %>
+          <%= render :partial => 'form', :locals => { :f => f } %>
+          <% end %>
        </div>
        <div class="form-group">
          <%= f.submit "Save", class: 'btn btn-success' %>
