@@ -27,7 +27,11 @@ class SubscribersController < ApplicationController
   def cancel_subscription
     customer = Stripe::Customer.retrieve(current_user.stripe_id)
     customer.subscriptions.retrieve(current_user.subscription_id).delete
+    current_user.subscription_id = nil
     current_user.role = "standard"
+    current_user.save!
+
+    flash[:notice] = "Canceled subscription successfully."
     redirect_to root_path
   end
   

@@ -41,9 +41,9 @@
   </div>
 <% end %>
 
-<% if current_user.role = "premium" %>
+<% if current_user.role == "premium" %>
   <h3>Downgrade account</h3> 
-  <%= button_to "Downgrade my account", { :controller => "subscribers", :action => "cancel_subscription"} %>
+  <%= button_to "Downgrade account", cancel_subscription_path, data: {confirm: "Are you sure?"}, method: :put %>
 <% end %>
 
 <h3>Cancel my account</h3>
