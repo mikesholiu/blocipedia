@@ -11,10 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150816024746) do
+ActiveRecord::Schema.define(version: 20150902031641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "collaborators", force: :cascade do |t|
+    t.integer "wiki_id"
+    t.integer "user_id"
+  end
+
+  add_index "collaborators", ["id"], name: "index_collaborators_on_id", unique: true, using: :btree
+  add_index "collaborators", ["user_id"], name: "index_collaborators_on_user_id", using: :btree
+  add_index "collaborators", ["wiki_id"], name: "index_collaborators_on_wiki_id", using: :btree
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
@@ -53,16 +62,20 @@ ActiveRecord::Schema.define(version: 20150816024746) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  create_table "users_wikis", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "wiki_id", null: false
+  end
+
+  add_index "users_wikis", ["user_id", "wiki_id"], name: "index_users_wikis_on_user_id_and_wiki_id", using: :btree
+  add_index "users_wikis", ["wiki_id", "user_id"], name: "index_users_wikis_on_wiki_id_and_user_id", using: :btree
+
   create_table "wikis", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.boolean  "private"
-    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_index "wikis", ["user_id"], name: "index_wikis_on_user_id", using: :btree
-
-  add_foreign_key "wikis", "users"
 end

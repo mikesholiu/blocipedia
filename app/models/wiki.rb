@@ -1,5 +1,6 @@
 class Wiki < ActiveRecord::Base
-  belongs_to :user
+  has_and_belongs_to_many :users, :join_table => :users_wikis
+
 
   scope :visible_to, -> (user) { 
     #user.nil? ? where(private: false) : where(private: false)
@@ -11,3 +12,10 @@ class Wiki < ActiveRecord::Base
   }
 
 end
+
+
+# user.rb
+# has_and_belongs_to_many wikis
+
+# wiki.rb
+# Has_and_belongs_to_many :users

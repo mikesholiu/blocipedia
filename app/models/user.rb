@@ -1,11 +1,12 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable #:confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :confirmable
 
   after_initialize :init
   belongs_to :plan
-  has_many :wikis, dependent: :destroy
+  has_and_belongs_to_many :wikis, dependent: :destroy, :join_table => :users_wikis
+  
 
   def init
     self.role ||= "standard"
