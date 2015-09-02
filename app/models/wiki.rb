@@ -12,10 +12,3 @@ class Wiki < ActiveRecord::Base
   }
 
 end
-
-
-# user.rb
-# has_and_belongs_to_many wikis
-
-# wiki.rb
-# Has_and_belongs_to_many :users
