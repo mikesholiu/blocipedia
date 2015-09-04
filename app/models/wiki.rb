@@ -7,7 +7,7 @@ class Wiki < ActiveRecord::Base
   }
 
   scope :visible_private, -> (user) {
-    where(private: true) && joins(:users).where(:users => {:id => user.id})
+    joins(:users).where(:users => {:id => user.id}, private: true)
   }
 
   scope :visible_private_global, -> (user) {
