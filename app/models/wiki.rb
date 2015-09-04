@@ -3,11 +3,14 @@ class Wiki < ActiveRecord::Base
 
 
   scope :visible_to, -> (user) { 
-    #user.nil? ? where(private: false) : where(private: false)
     where(private: false)
   }
 
   scope :visible_private, -> (user) {
+    where(private: true) && joins(:users).where(:users => {:id => user.id})
+  }
+
+  scope :visible_private_global, -> (user) {
     where(private: true)
   }
 

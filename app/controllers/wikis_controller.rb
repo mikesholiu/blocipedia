@@ -6,8 +6,11 @@ class WikisController < ApplicationController
   end
 
   def private_wikis
-    @wikis = Wiki.visible_private(current_user).paginate(page: params[:page], per_page: 20)
-    
+    if current_user.role != "admin"
+      @wikis = Wiki.visible_private(current_user).paginate(page: params[:page], per_page: 20)
+    else
+      @wikis = Wiki.visible_private_global(current_user).paginate(page: params[:page], per_page: 20)
+    end
   end
 
   def show
