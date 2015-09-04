@@ -67,8 +67,8 @@ ActiveRecord::Schema.define(version: 20150903233034) do
     t.integer "wiki_id", null: false
   end
 
-  add_index "users_wikis", ["user_id", "wiki_id"], name: "index_users_wikis_on_user_id_and_wiki_id", using: :btree
-  add_index "users_wikis", ["wiki_id", "user_id"], name: "index_users_wikis_on_wiki_id_and_user_id", using: :btree
+  add_index "users_wikis", ["user_id", "wiki_id"], name: "index_users_wikis_on_user_id_and_wiki_id", unique: true, using: :btree
+  add_index "users_wikis", ["wiki_id", "user_id"], name: "index_users_wikis_on_wiki_id_and_user_id", unique: true, using: :btree
 
   create_table "wikis", force: :cascade do |t|
     t.string   "title"

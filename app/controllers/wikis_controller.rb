@@ -39,8 +39,8 @@ class WikisController < ApplicationController
     @wiki = Wiki.find(params[:id])
     @collaborators = User.where(:id => params[:collaborators])
     @wiki.users = @collaborators 
-    if @wiki.creator?
-      @wiki.users << User.find(@wiki.creator) #always include the creator as a user
+    if @wiki.creator? && !@wiki.users.include?(User.find(@wiki.creator))
+      @wiki.users << User.find(@wiki.creator)
     end
     if @wiki.update_attributes(params.require(:wiki).permit(:title, :body, :private))
       flash[:notice] = "Wiki was updated."

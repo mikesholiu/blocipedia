@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable #:confirmable
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable #confirmable
 
   after_initialize :init
   belongs_to :plan
