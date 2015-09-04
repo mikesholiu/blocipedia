@@ -2,15 +2,20 @@
     <div class="form-group">
       <%= f.label :private, class: 'checkbox' do %>
       <%= f.check_box :private %> Private wiki
-
+</div>
 
       <div>
       <% if @wiki.private? %>
-        <%= f.label :collaborators %>
-        <div><%= select_tag "collaborators", options_from_collection_for_select(User.all, 'id', 'name',@wiki.users.map{ |j| j.id }), :multiple => true %></div>
+        <%= f.label :Select_Collaborators %>
+
+        <div>
+        <%= select_tag "collaborators", options_from_collection_for_select(User.all, 'id', 'name', @wiki.users.map{ |j| j.id } ), 
+          options = {:multiple => true, :style => 'width: 250px; height: 100px'}
+        %>
+        </div>
+
         <% end %>
         
       </div>
     <% end %>
-  </div>
 <% end %>

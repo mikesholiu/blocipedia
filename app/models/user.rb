@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   after_initialize :init
   belongs_to :plan
-  has_and_belongs_to_many :wikis, dependent: :destroy, :join_table => :users_wikis
+  has_and_belongs_to_many :wikis, dependent: :destroy, :join_table => :users_wikis, :uniq => true
   
 
   def init

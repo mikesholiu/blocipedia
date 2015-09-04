@@ -20,6 +20,7 @@ class WikisController < ApplicationController
 
   def create
     @wiki = Wiki.new(params.require(:wiki).permit(:title, :body, :private, :user_ids => []))
+    @wiki.creator = current_user.id
     @wiki.users << current_user
     if @wiki.save
       flash[:notice] = "Wiki was saved."
@@ -37,7 +38,10 @@ class WikisController < ApplicationController
   def update
     @wiki = Wiki.find(params[:id])
     @collaborators = User.where(:id => params[:collaborators])
-    @wiki.users << @collaborators
+    @wiki.users = @collaborators 
+    if @wiki.creator?
+      @wiki.users << User.find(@wiki.creator) #always include the creator as a user
+    end
     if @wiki.update_attributes(params.require(:wiki).permit(:title, :body, :private))
       flash[:notice] = "Wiki was updated."
       redirect_to @wiki

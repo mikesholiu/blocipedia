@@ -11,19 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150902031641) do
+ActiveRecord::Schema.define(version: 20150903233034) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "collaborators", force: :cascade do |t|
-    t.integer "wiki_id"
-    t.integer "user_id"
-  end
+  # create_table "collaborators", force: :cascade do |t|
+  #   t.integer "wiki_id"
+  #   t.integer "user_id"
+  # end
 
-  add_index "collaborators", ["id"], name: "index_collaborators_on_id", unique: true, using: :btree
-  add_index "collaborators", ["user_id"], name: "index_collaborators_on_user_id", using: :btree
-  add_index "collaborators", ["wiki_id"], name: "index_collaborators_on_wiki_id", using: :btree
+  # add_index "collaborators", ["id"], name: "index_collaborators_on_id", unique: true, using: :btree
+  # add_index "collaborators", ["user_id"], name: "index_collaborators_on_user_id", using: :btree
+  # add_index "collaborators", ["wiki_id"], name: "index_collaborators_on_wiki_id", using: :btree
 
   create_table "plans", force: :cascade do |t|
     t.string   "name"
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20150902031641) do
     t.boolean  "private"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "creator"
   end
 
 end
